@@ -18,6 +18,8 @@
 		fd8bd5a3f0e348a3b556a2cc /* GroundTargetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */; };
 		cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */; };
 		9ed99728c3c4479ba5289292 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90e12f3f853e47c5b10415d6 /* AVFoundation.framework */; };
+		8701550f4d06448e9d0d3443 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941b793d82484e3d927bc554 /* CoreLocation.framework */; };
+		2eb85327fad8442dacac1347 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86569905754e4a41aac08048 /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTargetsModel.swift; sourceTree = "<group>"; };
 		5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPickerExpando.swift; sourceTree = "<group>"; };
 		90e12f3f853e47c5b10415d6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		941b793d82484e3d927bc554 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		86569905754e4a41aac08048 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 				82e15e0d0e23412cb6faff2b /* SceneKit.framework in Frameworks */,
 				813122a26a2f47a099915d5b /* CoreMotion.framework in Frameworks */,
 				9ed99728c3c4479ba5289292 /* AVFoundation.framework in Frameworks */,
+				8701550f4d06448e9d0d3443 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,7 @@
 				b879f2a7ae0444c7b1fdbf4e /* CameraPreviewView.swift */,
 				99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */,
 				5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */,
+				86569905754e4a41aac08048 /* LocationService.swift */,
 				bcc7b015f3654231802c9f4e /* Assets.xcassets */,
 				4ede4131ee0346bfa3948b96 /* GroundTargets.json */,
 			);
@@ -166,6 +172,7 @@
 				f6c748cf9eaf473b85b4770c /* CameraPreviewView.swift in Sources */,
 				fd8bd5a3f0e348a3b556a2cc /* GroundTargetsModel.swift in Sources */,
 				cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */,
+				2eb85327fad8442dacac1347 /* LocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

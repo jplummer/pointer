@@ -162,6 +162,7 @@ Work top to bottom; each step is intended to finish in **one or two focused sess
 
 - Request **when-in-use** authorization; handle denied/restricted states in UI.
 - Subscribe to location updates (or significant-change if you prefer early battery savings); expose latitude, longitude, and horizontal accuracy to your model layer.
+- **In-app:** the **location strip** above the footer summarizes auth state, opens **Settings** when denied, and shows **lat/lon ±accuracy** once fixes arrive.
 
 **Checkpoint:** UI or debug overlay shows live user coords on device (simulator may need a simulated location).
 
