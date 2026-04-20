@@ -20,6 +20,7 @@
 		9ed99728c3c4479ba5289292 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90e12f3f853e47c5b10415d6 /* AVFoundation.framework */; };
 		8701550f4d06448e9d0d3443 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941b793d82484e3d927bc554 /* CoreLocation.framework */; };
 		2eb85327fad8442dacac1347 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86569905754e4a41aac08048 /* LocationService.swift */; };
+		1f0593c94aff435d908d1fa7 /* PointerInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		90e12f3f853e47c5b10415d6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		941b793d82484e3d927bc554 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		86569905754e4a41aac08048 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerInfoSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */,
 				5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */,
 				86569905754e4a41aac08048 /* LocationService.swift */,
+				9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */,
 				bcc7b015f3654231802c9f4e /* Assets.xcassets */,
 				4ede4131ee0346bfa3948b96 /* GroundTargets.json */,
 			);
@@ -173,6 +176,7 @@
 				fd8bd5a3f0e348a3b556a2cc /* GroundTargetsModel.swift in Sources */,
 				cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */,
 				2eb85327fad8442dacac1347 /* LocationService.swift in Sources */,
+				1f0593c94aff435d908d1fa7 /* PointerInfoSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

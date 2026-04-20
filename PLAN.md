@@ -148,7 +148,7 @@ Last reviewed against the repo: **2026-04-19**.
 | **1** Project shell | Done | SwiftUI app, iOS 17+, iPhone + iPad; builds and runs on simulator and device. |
 | **2** SceneKit arrow | Done | `ArrowSceneView` geometry + lighting + camera; arrow visible. |
 | **3** Core Motion → arrow | Done | Stabilized root + stub **+X** axis; predictable tilt on device (simulator motion is weak). |
-| **4** Core Location | Done | `LocationService`, when-in-use, denied/restricted UX + Settings link; lat/lon/accuracy strip. |
+| **4** Core Location | Done | `LocationService`, when-in-use; details + coordinates in **info** sheet (bottom-left). |
 | **5** Earth-fixed bearing | Not started | Next milestone. |
 | **6** Catalog v0 | Partial | `GroundTargets.json`, `AimSession`, categorized expando; selection does not yet drive arrow aim (blocked on Step 5). |
 | **7** Context cards | Not started | |
@@ -188,10 +188,10 @@ Last reviewed against the repo: **2026-04-19**.
 
 - Request **when-in-use** authorization; handle denied/restricted states in UI.
 - Subscribe to location updates (or significant-change if you prefer early battery savings); expose latitude, longitude, and horizontal accuracy to your model layer.
-- **In-app:** the **location strip** above the footer summarizes auth state, opens **Settings** when denied, and shows **lat/lon ±accuracy** once fixes arrive.
+- **In-app:** the **info** control (bottom-left) opens a sheet with **GPS status/coordinates**, **selected target** geography (or stub explanation), **great-circle distance and initial bearing** when both a fix and a catalog point exist, **Settings** when denied, and **build metadata** (version / build / bundle id).
 
 **Checkpoint:** UI or debug overlay shows live user coords on device (simulator may need a simulated location).  
-**Status:** Done — location strip + `LocationService`.
+**Status:** Done — info sheet + `LocationService`.
 
 ### Step 5 — One Earth-fixed target (direction math)
 
