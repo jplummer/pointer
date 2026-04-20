@@ -188,7 +188,7 @@ Last reviewed against the repo: **2026-04-19**.
 
 - Request **when-in-use** authorization; handle denied/restricted states in UI.
 - Subscribe to location updates (or significant-change if you prefer early battery savings); expose latitude, longitude, and horizontal accuracy to your model layer.
-- **In-app:** the **info** control (bottom-left) opens a sheet with **GPS status/coordinates**, **selected target** geography (or stub explanation), **great-circle distance and initial bearing** when both a fix and a catalog point exist, **Settings** when denied, and **build metadata** (version / build / bundle id).
+- **In-app:** the **info** control (bottom-left) opens a sheet with **GPS status/coordinates**, **selected target** geography (or stub explanation), **great-circle distance and initial bearing** when both a fix and a catalog point exist, **next-step / roadmap copy** (no persistent footer bar), **Settings** when denied, and **build metadata** (version / build / bundle id).
 
 **Checkpoint:** UI or debug overlay shows live user coords on device (simulator may need a simulated location).  
 **Status:** Done — info sheet + `LocationService`.

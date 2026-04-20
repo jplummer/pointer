@@ -36,6 +36,15 @@ struct PointerInfoSheet: View {
         }
 
         Section {
+          nextStepsSection
+        } header: {
+          Text("Next steps")
+        } footer: {
+          Text("Implementation roadmap — the camera view stays minimal until bearing drives the arrow.")
+            .font(.caption)
+        }
+
+        Section {
           developmentSection
         } header: {
           Text("Development")
@@ -150,6 +159,27 @@ struct PointerInfoSheet: View {
         Text("Waiting for a GPS fix to compute distance and bearing.")
           .foregroundStyle(.secondary)
       }
+    }
+  }
+
+  private var nextStepsSection: some View {
+    Text(nextStepsCopy)
+      .font(.subheadline)
+      .fixedSize(horizontal: false, vertical: true)
+  }
+
+  private var nextStepsCopy: String {
+    guard location.isAuthorized else {
+      return "Allow location when iOS asks, or enable Pointer under Settings → Privacy & Security → Location Services. Without it, directions on Earth stay unavailable."
+    }
+    if location.lastLocation == nil {
+      return "Waiting for a GPS fix. Try a clearer view of the sky or step outdoors if this lingers."
+    }
+    switch aimSession.aimMode {
+    case .stubMotionReference:
+      return "Location ready. Next: bearing math — align the SceneKit arrow with the motion stub, then aim at catalog coordinates using your position."
+    case .ground:
+      return "Location ready. Next: bearing math — rotate the arrow so it points toward this target on the real horizon."
     }
   }
 
