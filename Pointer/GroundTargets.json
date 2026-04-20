@@ -8,20 +8,20 @@
   "targets": [
     {
       "id": "ancient.great_pyramid_giza",
-      "displayName": "Great Pyramid of Giza (Khufu)",
+      "displayName": "Great Pyramids of Giza",
       "group": "seven_ancient_wonders",
       "latitude": 29.979167,
       "longitude": 31.134167,
-      "notes": "Pyramid of Khufu; primary ancient-wonder anchor.",
+      "notes": "Pyramid of Khufu",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Great_Pyramid_of_Giza"]
     },
     {
       "id": "ancient.hanging_gardens_babylon",
-      "displayName": "Hanging Gardens of Babylon (conventional Babylon site)",
+      "displayName": "Hanging Gardens of Babylon",
       "group": "seven_ancient_wonders",
       "latitude": 32.536389,
       "longitude": 44.420833,
-      "notes": "Location not attested; Hillah / Babylon area used as a teaching anchor with large uncertainty.",
+      "notes": "Location in dispute; Hillah/Babylon area",
       "sources": ["https://en.wikipedia.org/wiki/Hanging_Gardens_of_Babylon"]
     },
     {
@@ -30,7 +30,7 @@
       "group": "seven_ancient_wonders",
       "latitude": 37.949722,
       "longitude": 27.363889,
-      "notes": "Ruins near Selçuk; point at archaeological site.",
+      "notes": "Ruins near Selçuk",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Temple_of_Artemis"]
     },
     {
@@ -39,7 +39,7 @@
       "group": "seven_ancient_wonders",
       "latitude": 37.637944,
       "longitude": 21.629889,
-      "notes": "Sanctuary of Olympia; statue no longer present.",
+      "notes": "Sanctuary of Olympia; statue no longer present",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Statue_of_Zeus_at_Olympia"]
     },
     {
@@ -48,43 +48,43 @@
       "group": "seven_ancient_wonders",
       "latitude": 37.038056,
       "longitude": 27.424167,
-      "notes": "Bodrum (ancient Halicarnassus).",
+      "notes": "Bodrum (ancient Halicarnassus)",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Mausoleum_at_Halicarnassus"]
     },
     {
       "id": "ancient.colossus_of_rhodes",
-      "displayName": "Colossus of Rhodes (harbor symbolic point)",
+      "displayName": "Colossus of Rhodes",
       "group": "seven_ancient_wonders",
       "latitude": 36.451389,
       "longitude": 28.227778,
-      "notes": "Statue destroyed; Rhodes Mandraki harbor area as conventional marker.",
+      "notes": "Statue destroyed; Rhodes Mandraki harbor area",
       "sources": ["https://en.wikipedia.org/wiki/Colossus_of_Rhodes"]
     },
     {
       "id": "ancient.lighthouse_alexandria",
-      "displayName": "Lighthouse of Alexandria (Pharos)",
+      "displayName": "Lighthouse of Alexandria",
       "group": "seven_ancient_wonders",
       "latitude": 31.214167,
       "longitude": 29.885556,
-      "notes": "Fort Qaitbay vicinity on Pharos Island traditions; lighthouse destroyed.",
+      "notes": "Fort Qaitbay vicinity on Pharos Island; lighthouse destroyed",
       "sources": ["https://en.wikipedia.org/wiki/Lighthouse_of_Alexandria"]
     },
     {
       "id": "new7.great_wall_china",
-      "displayName": "Great Wall of China (Badaling)",
+      "displayName": "Great Wall of China",
       "group": "new7_wonders_winner",
       "latitude": 40.359722,
       "longitude": 116.020278,
-      "notes": "Representative publicly accessible segment; the wall spans many coordinates.",
+      "notes": "Representative publicly accessible segment at Badaling; the wall is long",
       "sources": ["https://en.wikipedia.org/wiki/Badaling"]
     },
     {
       "id": "new7.petra",
-      "displayName": "Petra (Al-Khazneh)",
+      "displayName": "Petra",
       "group": "new7_wonders_winner",
       "latitude": 30.322472,
       "longitude": 35.451617,
-      "notes": "Treasury façade as iconic anchor.",
+      "notes": "Al-Khazneh treasury façade",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Petra"]
     },
     {
@@ -93,7 +93,7 @@
       "group": "new7_wonders_winner",
       "latitude": -22.951917,
       "longitude": -43.210556,
-      "notes": "Corcovado statue.",
+      "notes": "Corcovado",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Christ_the_Redeemer_(statue)"]
     },
     {
@@ -102,7 +102,7 @@
       "group": "new7_wonders_winner",
       "latitude": -13.163056,
       "longitude": -72.545556,
-      "notes": "Classic citadel coordinates.",
+      "notes": "Citadel",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Machu_Picchu"]
     },
     {
@@ -120,7 +120,7 @@
       "group": "new7_wonders_winner",
       "latitude": 41.890278,
       "longitude": 12.492222,
-      "notes": "Amphitheatre ellipsoid center commonly cited.",
+      "notes": "Center of the amphitheatre",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Colosseum"]
     },
     {
@@ -129,16 +129,16 @@
       "group": "new7_wonders_winner",
       "latitude": 27.175017,
       "longitude": 78.042156,
-      "notes": "Mausoleum precinct.",
+      "notes": "Mausoleum precinct",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Taj_Mahal"]
     },
     {
       "id": "finalist.acropolis",
-      "displayName": "Acropolis of Athens (Parthenon)",
+      "displayName": "Acropolis of Athens",
       "group": "new7_finalist",
       "latitude": 37.971389,
       "longitude": 23.726667,
-      "notes": "Parthenon as visible anchor.",
+      "notes": "Parthenon",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Acropolis_of_Athens"]
     },
     {
@@ -147,7 +147,7 @@
       "group": "new7_finalist",
       "latitude": 37.176077,
       "longitude": -3.588141,
-      "notes": "Nasrid palaces precinct.",
+      "notes": "Nasrid palaces",
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Alhambra"]
     },
     {
@@ -156,7 +156,7 @@
       "group": "new7_finalist",
       "latitude": 13.412469,
       "longitude": 103.866985,
-      "notes": "Main temple complex.",
+      "notes": "Main temple complex",
       "sources": ["https://whc.unesco.org/en/list/668/"]
     },
     {

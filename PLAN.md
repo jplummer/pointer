@@ -276,3 +276,15 @@ Goal: ship a **single action** that saves or shares an image worth posting—cle
 ## Where the old “next step” landed
 
 Steps **1–5** are **done** in-repo: ground targets use **great-circle initial bearing** plus Core Motion **`.xTrueNorthZVertical`** so the arrow shaft (**local +Y**) aligns with that horizontal direction while the stabilized root tracks attitude. Step **6** is **partial** (catalog + picker + aim wiring); **8** (moving targets / ISS-class) remains the next major slice after catalog polish.
+
+---
+
+## Later ideas (backlog, unordered)
+
+Captured for when the core surface pipeline feels solid; no ordering implied.
+
+- **Icon and splash screen** — App Store asset set and launch storyboard / SwiftUI splash consistent with the in-app overlay style.
+- **Compass-only (surface) mode** — 2D map or compass rose that shows **initial bearing on the tangent plane only** (no chord dip), as a contrast to the full 3D chord aim; useful for “walking direction” intuition and teaching the difference vs the current pointer.
+- **Plane / horizon indicator** — A subtle **local horizontal plane** (disk, grid, or horizon line) in the SceneKit overlay so **elevation above/below that plane** (dip relative to tangent) reads at a glance; reinforces chord vs great-circle tangent.
+- **Globe mode** — Separate **map or 3D globe** view: observer and target as pins, **great-circle arc on the ellipsoid**, and the **straight chord** through the Earth (or the ECEF segment) so “piercing line” and curvature are visible; pairs with education copy in context cards.
+- **Different arrows** — Alternate arrow **geometries or materials** (sleek pointer, bold tourist style, accessibility scale) chosen in settings or per theme; share the same aim quaternion path.
