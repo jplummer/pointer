@@ -7,24 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		536b208d9dd240fb808669b2 /* PointerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */; };
-		2d29b844318d41a2ae9e283c /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755b5df937d496181cf65b3 /* ContentView.swift */; };
-		acf4b27f836d4ec1a070e2cd /* ArrowSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */; };
-		2da6cdaa30f04ffc93166645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = bcc7b015f3654231802c9f4e /* Assets.xcassets */; };
 		0e5e8f66e36649c48121e5c0 /* GroundTargets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ede4131ee0346bfa3948b96 /* GroundTargets.json */; };
-		82e15e0d0e23412cb6faff2b /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91c500686c4f4995b552311d /* SceneKit.framework */; };
+		2d29b844318d41a2ae9e283c /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755b5df937d496181cf65b3 /* ContentView.swift */; };
+		2da6cdaa30f04ffc93166645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = bcc7b015f3654231802c9f4e /* Assets.xcassets */; };
+		536b208d9dd240fb808669b2 /* PointerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */; };
 		813122a26a2f47a099915d5b /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32c42799b9f84466bb702a38 /* CoreMotion.framework */; };
+		82e15e0d0e23412cb6faff2b /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91c500686c4f4995b552311d /* SceneKit.framework */; };
+		acf4b27f836d4ec1a070e2cd /* ArrowSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */; };
+		f6c748cf9eaf473b85b4770c /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = b879f2a7ae0444c7b1fdbf4e /* CameraPreviewView.swift */; };
+		fd8bd5a3f0e348a3b556a2cc /* GroundTargetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */; };
+		cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */; };
+		9ed99728c3c4479ba5289292 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90e12f3f853e47c5b10415d6 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerApp.swift; sourceTree = "<group>"; };
-		5755b5df937d496181cf65b3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowSceneView.swift; sourceTree = "<group>"; };
-		bcc7b015f3654231802c9f4e /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32c42799b9f84466bb702a38 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		4ede4131ee0346bfa3948b96 /* GroundTargets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GroundTargets.json; sourceTree = "<group>"; };
+		5755b5df937d496181cf65b3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84c1fe7ca6c641d5826150eb /* Pointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pointer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91c500686c4f4995b552311d /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
-		32c42799b9f84466bb702a38 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		bcc7b015f3654231802c9f4e /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerApp.swift; sourceTree = "<group>"; };
+		ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowSceneView.swift; sourceTree = "<group>"; };
+		b879f2a7ae0444c7b1fdbf4e /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTargetsModel.swift; sourceTree = "<group>"; };
+		5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPickerExpando.swift; sourceTree = "<group>"; };
+		90e12f3f853e47c5b10415d6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,18 +42,26 @@
 			files = (
 				82e15e0d0e23412cb6faff2b /* SceneKit.framework in Frameworks */,
 				813122a26a2f47a099915d5b /* CoreMotion.framework in Frameworks */,
+				9ed99728c3c4479ba5289292 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		e3cd2b697e0743e6b553dba7 = {
+		3f81af90167e4b6f917d802f /* Pointer */ = {
 			isa = PBXGroup;
 			children = (
-				3f81af90167e4b6f917d802f /* Pointer */,
-				5df5823551a3418ca6967bbf /* Products */,
+				df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */,
+				5755b5df937d496181cf65b3 /* ContentView.swift */,
+				ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */,
+				b879f2a7ae0444c7b1fdbf4e /* CameraPreviewView.swift */,
+				99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */,
+				5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */,
+				bcc7b015f3654231802c9f4e /* Assets.xcassets */,
+				4ede4131ee0346bfa3948b96 /* GroundTargets.json */,
 			);
+			path = Pointer;
 			sourceTree = "<group>";
 		};
 		5df5823551a3418ca6967bbf /* Products */ = {
@@ -56,16 +72,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3f81af90167e4b6f917d802f /* Pointer */ = {
+		A638926C2F95A2D10097D72B /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */,
-				5755b5df937d496181cf65b3 /* ContentView.swift */,
-				ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */,
-				bcc7b015f3654231802c9f4e /* Assets.xcassets */,
-				4ede4131ee0346bfa3948b96 /* GroundTargets.json */,
+				91c500686c4f4995b552311d /* SceneKit.framework */,
+				32c42799b9f84466bb702a38 /* CoreMotion.framework */,
 			);
-			path = Pointer;
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		e3cd2b697e0743e6b553dba7 = {
+			isa = PBXGroup;
+			children = (
+				3f81af90167e4b6f917d802f /* Pointer */,
+				5df5823551a3418ca6967bbf /* Products */,
+				A638926C2F95A2D10097D72B /* Recovered References */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,12 +163,46 @@
 				536b208d9dd240fb808669b2 /* PointerApp.swift in Sources */,
 				2d29b844318d41a2ae9e283c /* ContentView.swift in Sources */,
 				acf4b27f836d4ec1a070e2cd /* ArrowSceneView.swift in Sources */,
+				f6c748cf9eaf473b85b4770c /* CameraPreviewView.swift in Sources */,
+				fd8bd5a3f0e348a3b556a2cc /* GroundTargetsModel.swift in Sources */,
+				cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		213c1ef7f684452c84478b50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7294Y62396;
+				ENABLE_PREVIEWS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pointer;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Pointer shows the camera behind the arrow so you can see the scene you are pointing through.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pointer uses your location to compute directions toward the selected ground target.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jplummer.pointer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7f6af7fd64ae4d27abc44198 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -210,6 +266,37 @@
 			};
 			name = Debug;
 		};
+		a1c50ec8dbb34eec831da115 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7294Y62396;
+				ENABLE_PREVIEWS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pointer;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Pointer shows the camera behind the arrow so you can see the scene you are pointing through.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pointer uses your location to compute directions toward the selected ground target.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jplummer.pointer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		e151b3a051b24f99b9e7c2b1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -266,83 +353,23 @@
 			};
 			name = Release;
 		};
-		a1c50ec8dbb34eec831da115 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Pointer;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pointer uses your location to compute directions toward the selected ground target.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pointer.Pointer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = minimal;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		213c1ef7f684452c84478b50 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Pointer;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pointer uses your location to compute directions toward the selected ground target.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pointer.Pointer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = minimal;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		d9f9c5eeec22473eb3c2a990 /* Build configuration list for PBXProject "Pointer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7f6af7fd64ae4d27abc44198 /* Debug */,
-				e151b3a051b24f99b9e7c2b1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		926dad36912d4e39bc0207d5 /* Build configuration list for PBXNativeTarget "Pointer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				a1c50ec8dbb34eec831da115 /* Debug */,
 				213c1ef7f684452c84478b50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		d9f9c5eeec22473eb3c2a990 /* Build configuration list for PBXProject "Pointer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7f6af7fd64ae4d27abc44198 /* Debug */,
+				e151b3a051b24f99b9e7c2b1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -175,9 +175,10 @@ Work top to bottom; each step is intended to finish in **one or two focused sess
 ### Step 6 — Catalog v0 (static list)
 
 - Move the single target into a **small static catalog** (Swift data, JSON bundled in app—your call). The repo already ships **`Pointer/GroundTargets.json`** as a starter bundle you can decode when ready.
-- List UI to pick a target; selection updates the aim target; keep the list **short** until copy is ready.
+- **Picker chrome:** the top **“Pointing at”** surface is an **expando**: collapsed it shows the current selection; expanded it shows a **categorized menu** (groups from JSON—ancient wonders, New7Wonders legs, seed rows, plus a **Motion (test)** stub until ephemeris targets exist). Selection updates **model state** immediately; the arrow follows once **location + bearing** exist (Steps 4–5) and later **moving targets** (Step 8).
+- Keep sections **scrollable** and cap expanded height so the camera + arrow stay visible.
 
-**Checkpoint:** Switching rows changes where the arrow aims without code changes.
+**Checkpoint:** Switching rows updates the selected target in-app; once bearing math lands, switching rows changes where the arrow aims **without new UI work**.
 
 ### Step 7 — Per-target context card
 
@@ -221,6 +222,26 @@ Work top to bottom; each step is intended to finish in **one or two focused sess
 - Treat as optional: ship without AR if schedule slips.
 
 **Checkpoint:** Arrow overlays camera pass with plausible alignment (exact calibration can stay iterative).
+
+### Step 12 — Prettified screenshot
+
+Goal: ship a **single action** that saves or shares an image worth posting—clean composition, readable caption, no accidental HUD clutter.
+
+- **Trigger:** toolbar / overflow action, or an explicit **“Capture”** control (avoid accidental screenshots from volume buttons unless you document it).
+- **What to capture:** composite of **camera feed + SceneKit arrow + “Pointing at” label** (and whatever branding you want). Optionally **strip** dev-only overlays or show a **simplified** caption line for export only.
+- **Prettify levers (pick a minimal set for v1):**
+  - Fixed **aspect ratio** or **safe margins** so crops for social or App Store previews don’t clip the arrow.
+  - Optional **footer strip**: target name, UTC date/time, coarse place (city-level) only if privacy copy allows—otherwise omit location.
+  - Optional **wordmark** or tint consistent with app chrome.
+  - **Temporal anti-flicker:** pause or average one frame of video if banding shows up in exports.
+- **Implementation sketch (choose one path and isolate behind something like `ScreenshotComposer`):**
+  - **`ImageRenderer`** over a SwiftUI subtree built for export (easiest iteration on layout).
+  - **`UIView.drawHierarchy(in:afterScreenUpdates:)`** / **`UIGraphicsImageRenderer`** on a dedicated container that mirrors the live UI.
+  - **SceneKit / Metal snapshot** only if vector-level crispness on the arrow matters more than iteration speed.
+- **Delivery:** **`PHPhotoLibrary`** (add **Photo Library usage** string), **`UIActivityViewController`**, and/or **temporary file** for AirDrop.
+- **Honesty:** screenshot is a **composed illustration** of the experience—fine for marketing if labeled; for bug reports, offer a separate **plain** capture mode without prettification.
+
+**Checkpoint:** One tap produces a shareable image that looks intentional, not a raw framebuffer grab.
 
 ---
 
