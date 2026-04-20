@@ -127,9 +127,11 @@ The global campaign started from **21 finalists**; subtract the **seven vote win
 
 ## Success criteria (draft)
 
-- Smooth arrow update on device rotation and position changes.
-- Correct qualitative direction for Earth-fixed targets.
-- Documented limitations for astronomy and ISS-class targets.
+Track against the implementation roadmap; update when a milestone ships.
+
+- [x] **Smooth arrow update** on device rotation — Core Motion + stabilized SceneKit (stub axis); revisit after Step 5 for ground targets.
+- [ ] **Correct qualitative direction for Earth-fixed targets** — pending Step 5 (bearing math).
+- [x] **Documented limitations** for non-ground sources — `DATA_SOURCES.md` (TLE, Horizons, SIMBAD, WMM, etc.); in-app satellite ephemeris not built yet.
 
 ---
 
@@ -137,26 +139,50 @@ The global campaign started from **21 finalists**; subtract the **seven vote win
 
 Work top to bottom; each step is intended to finish in **one or two focused sessions** so you can pause between weekends without losing the thread. Skip ahead only when a dependency is already done.
 
+### Roadmap progress
+
+Last reviewed against the repo: **2026-04-19**.
+
+| Step | Status | Verified |
+|:-----|:-------|:---------|
+| **1** Project shell | Done | SwiftUI app, iOS 17+, iPhone + iPad; builds and runs on simulator and device. |
+| **2** SceneKit arrow | Done | `ArrowSceneView` geometry + lighting + camera; arrow visible. |
+| **3** Core Motion → arrow | Done | Stabilized root + stub **+X** axis; predictable tilt on device (simulator motion is weak). |
+| **4** Core Location | Done | `LocationService`, when-in-use, denied/restricted UX + Settings link; lat/lon/accuracy strip. |
+| **5** Earth-fixed bearing | Not started | Next milestone. |
+| **6** Catalog v0 | Partial | `GroundTargets.json`, `AimSession`, categorized expando; selection does not yet drive arrow aim (blocked on Step 5). |
+| **7** Context cards | Not started | |
+| **8** Moving target (ISS-class) | Not started | |
+| **9** Expand surface catalog | Not started | Many rows already in JSON; “expand” means polish + behavior + copy. |
+| **10** Polish pass | Not started | |
+| **11** AR pass | Not started | Optional. |
+| **12** Prettified screenshot | Not started | |
+
+**Optional track** (fixed celestial / SIMBAD-class): not started.
+
 ### Step 1 — Project shell
 
 - Create an Xcode SwiftUI project for **iOS + iPadOS** with a unified lifecycle and a sensible minimum deployment target.
 - Add a minimal app structure: root view, placeholder for the 3D view, placeholder for target selection (even a single hardcoded title).
 
-**Checkpoint:** App launches on simulator and device; empty UI is navigable.
+**Checkpoint:** App launches on simulator and device; empty UI is navigable.  
+**Status:** Done (see roadmap table).
 
 ### Step 2 — SceneKit arrow (no sensors yet)
 
 - Embed **`SCNView`** (or wrapper) in SwiftUI.
 - Build a scene with a readable **arrow** (cone + cylinder or imported asset), lighting, and camera framing.
 
-**Checkpoint:** Arrow is visible and stable when you rotate the simulator/device *without* tying attitude to the arrow yet.
+**Checkpoint:** Arrow is visible and stable when you rotate the simulator/device *without* tying attitude to the arrow yet.  
+**Status:** Done (superseded by Step 3 wiring; arrow geometry unchanged).
 
 ### Step 3 — Core Motion → arrow orientation
 
 - Subscribe to device attitude (quaternion or rotation matrix).
 - Drive the arrow’s orientation so it represents a **test direction** in world space (e.g. always “north” in a dumb stub, or fixed axis) to validate the math pipeline.
 
-**Checkpoint:** Tilting the physical device clearly moves the arrow in a predictable way.
+**Checkpoint:** Tilting the physical device clearly moves the arrow in a predictable way.  
+**Status:** Done — stub axis (+X); validate on a physical device.
 
 ### Step 4 — Core Location plumbing
 
@@ -164,14 +190,16 @@ Work top to bottom; each step is intended to finish in **one or two focused sess
 - Subscribe to location updates (or significant-change if you prefer early battery savings); expose latitude, longitude, and horizontal accuracy to your model layer.
 - **In-app:** the **location strip** above the footer summarizes auth state, opens **Settings** when denied, and shows **lat/lon ±accuracy** once fixes arrive.
 
-**Checkpoint:** UI or debug overlay shows live user coords on device (simulator may need a simulated location).
+**Checkpoint:** UI or debug overlay shows live user coords on device (simulator may need a simulated location).  
+**Status:** Done — location strip + `LocationService`.
 
 ### Step 5 — One Earth-fixed target (direction math)
 
 - Pick **one** landmark with a fixed WGS84 coordinate (hardcoded constant is fine).
 - Implement **user position + target lat/lon → direction** in the frame your arrow uses (ECEF → local ENU or equivalent), then combine with attitude from Step 3 so the arrow points **at** the landmark.
 
-**Checkpoint:** On a real walk or drive, the arrow’s intent matches “that way” qualitatively for the fixed point.
+**Checkpoint:** On a real walk or drive, the arrow’s intent matches “that way” qualitatively for the fixed point.  
+**Status:** Not started.
 
 ### Step 6 — Catalog v0 (static list)
 
@@ -179,7 +207,8 @@ Work top to bottom; each step is intended to finish in **one or two focused sess
 - **Picker chrome:** the top **“Pointing at”** surface is an **expando**: collapsed it shows the current selection; expanded it shows a **categorized menu** (groups from JSON—ancient wonders, New7Wonders legs, seed rows, plus a **Motion (test)** stub until ephemeris targets exist). Selection updates **model state** immediately; the arrow follows once **location + bearing** exist (Steps 4–5) and later **moving targets** (Step 8).
 - Keep sections **scrollable** and cap expanded height so the camera + arrow stay visible.
 
-**Checkpoint:** Switching rows updates the selected target in-app; once bearing math lands, switching rows changes where the arrow aims **without new UI work**.
+**Checkpoint:** Switching rows updates the selected target in-app; once bearing math lands, switching rows changes where the arrow aims **without new UI work**.  
+**Status:** Partial — picker + `AimSession` + JSON decode; arrow still uses Step 3 stub until Step 5 wires aim to selection.
 
 ### Step 7 — Per-target context card
 
@@ -248,4 +277,4 @@ Goal: ship a **single action** that saves or shares an image worth posting—cle
 
 ## Where the old “next step” landed
 
-Steps **1–5** replace the former single “next step” (SwiftUI + SceneKit + one fixed target + ISS); the roadmap splits that into **motion**, **location**, **math**, then **moving target**, and orders **catalog + copy** so you always have something shippable between weekends.
+Steps **1–4** are **done** in-repo; **5** (bearing to a fixed point) is the immediate next slice. Steps **6+** partially overlap work already started (bundled catalog + picker) but **behavioral completion** waits on **5** (and **8** for ISS-class). The roadmap still orders **motion → location → math → moving target** so each weekend leaves something runnable.
