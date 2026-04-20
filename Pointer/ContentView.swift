@@ -6,6 +6,7 @@ struct ContentView: View {
   @StateObject private var aimSession = AimSession()
   @StateObject private var location = LocationService()
   @State private var isInfoPresented = false
+  @State private var arrowSceneReady = false
   @Environment(\.openURL) private var openURL
 
   var body: some View {
@@ -13,8 +14,16 @@ struct ContentView: View {
       CameraPreviewView()
         .ignoresSafeArea()
 
-      ArrowSceneView()
-        .ignoresSafeArea()
+      ArrowSceneView(
+        aimMode: aimSession.aimMode,
+        userCoordinate: location.lastLocation?.coordinate,
+        isSceneReady: $arrowSceneReady
+      )
+      .ignoresSafeArea()
+
+      if !arrowSceneReady {
+        loadingOverCamera
+      }
 
       VStack(spacing: 0) {
         TargetPickerExpando(session: aimSession)
@@ -34,6 +43,13 @@ struct ContentView: View {
     .onAppear {
       location.begin()
     }
+    .task {
+      // If SceneKit never fires the first render callback (unexpected), avoid an endless spinner.
+      try? await Task.sleep(for: .seconds(6))
+      if !arrowSceneReady {
+        arrowSceneReady = true
+      }
+    }
     .sheet(isPresented: $isInfoPresented) {
       PointerInfoSheet(
         location: location,
@@ -45,6 +61,35 @@ struct ContentView: View {
         }
       )
     }
+  }
+
+  /// Spinner until SceneKit’s first draw. Full-screen dim removed so the **camera preview stays visible**; only this card sits on top.
+  private var loadingOverCamera: some View {
+    VStack {
+      Spacer()
+      VStack(spacing: 14) {
+        ProgressView()
+          .progressViewStyle(.circular)
+          .tint(.white)
+          .scaleEffect(1.35)
+        Text("Preparing the on-screen arrow")
+          .font(.subheadline.weight(.medium))
+          .foregroundStyle(.white)
+          .multilineTextAlignment(.center)
+      }
+      .padding(.horizontal, 28)
+      .padding(.vertical, 24)
+      .background {
+        RoundedRectangle(cornerRadius: 18, style: .continuous)
+          .fill(.ultraThinMaterial)
+          .shadow(color: .black.opacity(0.4), radius: 24, x: 0, y: 10)
+      }
+      .accessibilityElement(children: .combine)
+      .accessibilityLabel("Preparing the on-screen arrow, please wait")
+      Spacer()
+    }
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .allowsHitTesting(false)
   }
 
   private var infoButton: some View {
@@ -66,6 +111,6 @@ struct ContentView: View {
         }
     }
     .buttonStyle(.plain)
-    .accessibilityLabel("Details: location, target, next steps, and build info")
+    .accessibilityLabel("Details: location, target, and distance")
   }
 }

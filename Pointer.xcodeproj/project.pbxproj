@@ -8,37 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		0e5e8f66e36649c48121e5c0 /* GroundTargets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ede4131ee0346bfa3948b96 /* GroundTargets.json */; };
+		1f0593c94aff435d908d1fa7 /* PointerInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */; };
 		2d29b844318d41a2ae9e283c /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755b5df937d496181cf65b3 /* ContentView.swift */; };
 		2da6cdaa30f04ffc93166645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = bcc7b015f3654231802c9f4e /* Assets.xcassets */; };
+		2eb85327fad8442dacac1347 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86569905754e4a41aac08048 /* LocationService.swift */; };
 		536b208d9dd240fb808669b2 /* PointerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */; };
 		813122a26a2f47a099915d5b /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32c42799b9f84466bb702a38 /* CoreMotion.framework */; };
 		82e15e0d0e23412cb6faff2b /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91c500686c4f4995b552311d /* SceneKit.framework */; };
+		8701550f4d06448e9d0d3443 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941b793d82484e3d927bc554 /* CoreLocation.framework */; };
+		9ed99728c3c4479ba5289292 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90e12f3f853e47c5b10415d6 /* AVFoundation.framework */; };
 		acf4b27f836d4ec1a070e2cd /* ArrowSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */; };
+		cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */; };
+		e8c3a4b52f604d8e9b7c2d11 /* Geodesy.swift in Sources */ = {isa = PBXBuildFile; fileRef = f2a1b3c4d5e6479081726354 /* Geodesy.swift */; };
 		f6c748cf9eaf473b85b4770c /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = b879f2a7ae0444c7b1fdbf4e /* CameraPreviewView.swift */; };
 		fd8bd5a3f0e348a3b556a2cc /* GroundTargetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */; };
-		cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */; };
-		9ed99728c3c4479ba5289292 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90e12f3f853e47c5b10415d6 /* AVFoundation.framework */; };
-		8701550f4d06448e9d0d3443 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941b793d82484e3d927bc554 /* CoreLocation.framework */; };
-		2eb85327fad8442dacac1347 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86569905754e4a41aac08048 /* LocationService.swift */; };
-		1f0593c94aff435d908d1fa7 /* PointerInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		32c42799b9f84466bb702a38 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		4ede4131ee0346bfa3948b96 /* GroundTargets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GroundTargets.json; sourceTree = "<group>"; };
 		5755b5df937d496181cf65b3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPickerExpando.swift; sourceTree = "<group>"; };
 		84c1fe7ca6c641d5826150eb /* Pointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pointer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86569905754e4a41aac08048 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		90e12f3f853e47c5b10415d6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		91c500686c4f4995b552311d /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		941b793d82484e3d927bc554 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTargetsModel.swift; sourceTree = "<group>"; };
+		9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerInfoSheet.swift; sourceTree = "<group>"; };
+		b879f2a7ae0444c7b1fdbf4e /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		bcc7b015f3654231802c9f4e /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		df8921e1ddec4df49ff6b8f1 /* PointerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerApp.swift; sourceTree = "<group>"; };
+		f2a1b3c4d5e6479081726354 /* Geodesy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geodesy.swift; sourceTree = "<group>"; };
 		ffcd5b1871dd422ba7fa0e88 /* ArrowSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowSceneView.swift; sourceTree = "<group>"; };
-		b879f2a7ae0444c7b1fdbf4e /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
-		99a388feac7e4150afe70c22 /* GroundTargetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTargetsModel.swift; sourceTree = "<group>"; };
-		5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPickerExpando.swift; sourceTree = "<group>"; };
-		90e12f3f853e47c5b10415d6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		941b793d82484e3d927bc554 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		86569905754e4a41aac08048 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerInfoSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				5a07aba7641a4d39927803e1 /* TargetPickerExpando.swift */,
 				86569905754e4a41aac08048 /* LocationService.swift */,
 				9eb8d4f71a264e528201b284 /* PointerInfoSheet.swift */,
+				f2a1b3c4d5e6479081726354 /* Geodesy.swift */,
 				bcc7b015f3654231802c9f4e /* Assets.xcassets */,
 				4ede4131ee0346bfa3948b96 /* GroundTargets.json */,
 			);
@@ -86,6 +89,8 @@
 			children = (
 				91c500686c4f4995b552311d /* SceneKit.framework */,
 				32c42799b9f84466bb702a38 /* CoreMotion.framework */,
+				90e12f3f853e47c5b10415d6 /* AVFoundation.framework */,
+				941b793d82484e3d927bc554 /* CoreLocation.framework */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -127,7 +132,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					02813c7c8c4f4265813ecb90 = {
 						CreatedOnToolsVersion = 16.4;
@@ -177,6 +182,7 @@
 				cbea96023cb04776b5095909 /* TargetPickerExpando.swift in Sources */,
 				2eb85327fad8442dacac1347 /* LocationService.swift in Sources */,
 				1f0593c94aff435d908d1fa7 /* PointerInfoSheet.swift in Sources */,
+				e8c3a4b52f604d8e9b7c2d11 /* Geodesy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +196,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7294Y62396;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Pointer;
@@ -249,6 +254,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7294Y62396;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -272,6 +278,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -284,7 +291,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7294Y62396;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Pointer;
@@ -343,6 +349,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7294Y62396;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -359,6 +366,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

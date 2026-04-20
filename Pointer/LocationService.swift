@@ -1,8 +1,13 @@
-import CoreLocation
+@preconcurrency import CoreLocation
 import Foundation
 
 /// When-in-use location for bearing math (Step 4). Starts updates after authorization.
-final class LocationService: NSObject, ObservableObject {
+///
+/// `CLLocationManager` callbacks are delivered on a system queue; we hop to the main actor with `Task`.
+/// `LocationService` is `@MainActor`-isolated; `@unchecked Sendable` matches that handoff and silences
+/// incorrect default `Sendable` diagnostics when Core Location types appear in `@Sendable` closures.
+@MainActor
+final class LocationService: NSObject, ObservableObject, @unchecked Sendable {
   @Published private(set) var authorizationStatus: CLAuthorizationStatus
   @Published private(set) var lastLocation: CLLocation?
   @Published private(set) var lastError: Error?
@@ -10,8 +15,7 @@ final class LocationService: NSObject, ObservableObject {
   private let manager = CLLocationManager()
 
   override init() {
-    let probe = CLLocationManager()
-    authorizationStatus = probe.authorizationStatus
+    authorizationStatus = CLLocationManager().authorizationStatus
     super.init()
     manager.delegate = self
     manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -20,24 +24,19 @@ final class LocationService: NSObject, ObservableObject {
 
   /// Request authorization if needed, then start continuous updates when allowed.
   func begin() {
-    DispatchQueue.main.async { [weak self] in
-      guard let self else { return }
-      self.authorizationStatus = self.manager.authorizationStatus
-      switch self.authorizationStatus {
-      case .notDetermined:
-        self.manager.requestWhenInUseAuthorization()
-      case .authorizedAlways, .authorizedWhenInUse:
-        self.manager.startUpdatingLocation()
-      default:
-        break
-      }
+    authorizationStatus = manager.authorizationStatus
+    switch authorizationStatus {
+    case .notDetermined:
+      manager.requestWhenInUseAuthorization()
+    case .authorizedAlways, .authorizedWhenInUse:
+      manager.startUpdatingLocation()
+    default:
+      break
     }
   }
 
   func stop() {
-    DispatchQueue.main.async { [weak self] in
-      self?.manager.stopUpdatingLocation()
-    }
+    manager.stopUpdatingLocation()
   }
 
   var isAuthorized: Bool {
@@ -47,13 +46,13 @@ final class LocationService: NSObject, ObservableObject {
 
 extension LocationService: CLLocationManagerDelegate {
   nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-    DispatchQueue.main.async { [weak self] in
+    let status = manager.authorizationStatus
+    Task { @MainActor [weak self] in
       guard let self else { return }
-      let status = manager.authorizationStatus
       self.authorizationStatus = status
       switch status {
       case .authorizedAlways, .authorizedWhenInUse:
-        manager.startUpdatingLocation()
+        self.manager.startUpdatingLocation()
       default:
         break
       }
@@ -61,16 +60,16 @@ extension LocationService: CLLocationManagerDelegate {
   }
 
   nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    DispatchQueue.main.async { [weak self] in
+    guard let fix = locations.last else { return }
+    Task { @MainActor [weak self] in
       guard let self else { return }
-      guard let fix = locations.last else { return }
       self.lastLocation = fix
       self.lastError = nil
     }
   }
 
   nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    DispatchQueue.main.async { [weak self] in
+    Task { @MainActor [weak self] in
       self?.lastError = error
     }
   }

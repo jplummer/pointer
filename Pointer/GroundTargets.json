@@ -133,15 +133,6 @@
       "sources": ["https://geohack.toolforge.org/geohack.php?pagename=Taj_Mahal"]
     },
     {
-      "id": "new7.honorary_great_pyramid",
-      "displayName": "Great Pyramid of Giza (New7Wonders honorary)",
-      "group": "new7_honorary",
-      "latitude": 29.979167,
-      "longitude": 31.134167,
-      "notes": "Same coordinates as ancient-wonder entry; honorary status in the 2007 campaign.",
-      "sources": ["https://world.new7wonders.org/wonders/the-pyramids-of-giza-egypt/"]
-    },
-    {
       "id": "finalist.acropolis",
       "displayName": "Acropolis of Athens (Parthenon)",
       "group": "new7_finalist",
@@ -268,15 +259,6 @@
       "sources": ["https://www.rmg.co.uk/royal-observatory"]
     },
     {
-      "id": "seed.null_island",
-      "displayName": "Null Island (0°, 0°)",
-      "group": "seed_plan",
-      "latitude": 0.0,
-      "longitude": 0.0,
-      "notes": "Open ocean; meme coordinate.",
-      "sources": ["https://en.wikipedia.org/wiki/Null_Island"]
-    },
-    {
       "id": "seed.mecca_kaaba",
       "displayName": "Kaaba (Masjid al-Haram)",
       "group": "seed_plan",
@@ -314,11 +296,11 @@
     },
     {
       "id": "seed.challenger_deep",
-      "displayName": "Challenger Deep (surface reference point)",
+      "displayName": "Challenger Deep (deepest seabed)",
       "group": "seed_plan",
       "latitude": 11.373333,
-      "longitude": 142.591667,
-      "notes": "Direction should become local vertical plus bathymetry for serious use.",
+      "longitude": 142.215,
+      "notes": "Mariana Trench depression; coordinates follow the commonly cited Challenger Deep locale (horizontal aim only — the floor is ~11 km below the ellipsoid along the local vertical through this geographic position).",
       "sources": ["https://en.wikipedia.org/wiki/Challenger_Deep"]
     },
     {

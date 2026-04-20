@@ -130,7 +130,7 @@ The global campaign started from **21 finalists**; subtract the **seven vote win
 Track against the implementation roadmap; update when a milestone ships.
 
 - [x] **Smooth arrow update** on device rotation — Core Motion + stabilized SceneKit (stub axis); revisit after Step 5 for ground targets.
-- [ ] **Correct qualitative direction for Earth-fixed targets** — pending Step 5 (bearing math).
+- [x] **Correct qualitative direction for Earth-fixed targets** — `xTrueNorthZVertical` + great-circle initial bearing + arrow twist (Step 5; validate on device).
 - [x] **Documented limitations** for non-ground sources — `DATA_SOURCES.md` (TLE, Horizons, SIMBAD, WMM, etc.); in-app satellite ephemeris not built yet.
 
 ---
@@ -141,22 +141,20 @@ Work top to bottom; each step is intended to finish in **one or two focused sess
 
 ### Roadmap progress
 
-Last reviewed against the repo: **2026-04-19**.
+Last reviewed against the repo: **2026-04-20**.
 
-| Step | Status | Verified |
-|:-----|:-------|:---------|
-| **1** Project shell | Done | SwiftUI app, iOS 17+, iPhone + iPad; builds and runs on simulator and device. |
-| **2** SceneKit arrow | Done | `ArrowSceneView` geometry + lighting + camera; arrow visible. |
-| **3** Core Motion → arrow | Done | Stabilized root + stub **+X** axis; predictable tilt on device (simulator motion is weak). |
-| **4** Core Location | Done | `LocationService`, when-in-use; details + coordinates in **info** sheet (bottom-left). |
-| **5** Earth-fixed bearing | Not started | Next milestone. |
-| **6** Catalog v0 | Partial | `GroundTargets.json`, `AimSession`, categorized expando; selection does not yet drive arrow aim (blocked on Step 5). |
-| **7** Context cards | Not started | |
-| **8** Moving target (ISS-class) | Not started | |
-| **9** Expand surface catalog | Not started | Many rows already in JSON; “expand” means polish + behavior + copy. |
-| **10** Polish pass | Not started | |
-| **11** AR pass | Not started | Optional. |
-| **12** Prettified screenshot | Not started | |
+- **1 — Project shell** — **Done.** SwiftUI app, iOS 17+, iPhone + iPad; builds and runs on simulator and device.
+- **2 — SceneKit arrow** — **Done.** `ArrowSceneView` geometry + lighting + camera; arrow visible.
+- **3 — Core Motion → arrow** — **Done.** Stabilized root + stub **+X** axis; predictable tilt on device (simulator motion is weak).
+- **4 — Core Location** — **Done.** `LocationService`, when-in-use; details + coordinates in **info** sheet (bottom-left).
+- **5 — Earth-fixed aim** — **Done.** WGS84 ECEF → local ENU chord in `Geodesy`; `ArrowSceneView` + `.xTrueNorthZVertical` when ground target + fix; stub otherwise.
+- **6 — Catalog v0** — **Partial.** Catalog + picker drive aim when location available; polish remains.
+- **7 — Context cards** — **Not started.**
+- **8 — Moving target (ISS-class)** — **Not started.**
+- **9 — Expand surface catalog** — **Not started.** Many rows already in JSON; “expand” means polish + behavior + copy.
+- **10 — Polish pass** — **Not started.**
+- **11 — AR pass** — **Not started.** Optional.
+- **12 — Prettified screenshot** — **Not started.**
 
 **Optional track** (fixed celestial / SIMBAD-class): not started.
 
@@ -166,7 +164,7 @@ Last reviewed against the repo: **2026-04-19**.
 - Add a minimal app structure: root view, placeholder for the 3D view, placeholder for target selection (even a single hardcoded title).
 
 **Checkpoint:** App launches on simulator and device; empty UI is navigable.  
-**Status:** Done (see roadmap table).
+**Status:** Done (see **Roadmap progress** above).
 
 ### Step 2 — SceneKit arrow (no sensors yet)
 
@@ -199,7 +197,7 @@ Last reviewed against the repo: **2026-04-19**.
 - Implement **user position + target lat/lon → direction** in the frame your arrow uses (ECEF → local ENU or equivalent), then combine with attitude from Step 3 so the arrow points **at** the landmark.
 
 **Checkpoint:** On a real walk or drive, the arrow’s intent matches “that way” qualitatively for the fixed point.  
-**Status:** Not started.
+**Status:** Done — wiring in `ArrowSceneView` + `Geodesy`; confirm outdoors on hardware.
 
 ### Step 6 — Catalog v0 (static list)
 
@@ -207,8 +205,8 @@ Last reviewed against the repo: **2026-04-19**.
 - **Picker chrome:** the top **“Pointing at”** surface is an **expando**: collapsed it shows the current selection; expanded it shows a **categorized menu** (groups from JSON—ancient wonders, New7Wonders legs, seed rows, plus a **Motion (test)** stub until ephemeris targets exist). Selection updates **model state** immediately; the arrow follows once **location + bearing** exist (Steps 4–5) and later **moving targets** (Step 8).
 - Keep sections **scrollable** and cap expanded height so the camera + arrow stay visible.
 
-**Checkpoint:** Switching rows updates the selected target in-app; once bearing math lands, switching rows changes where the arrow aims **without new UI work**.  
-**Status:** Partial — picker + `AimSession` + JSON decode; arrow still uses Step 3 stub until Step 5 wires aim to selection.
+**Checkpoint:** Switching rows updates the selected target in-app; switching rows changes where the arrow aims when a GPS fix exists **without new UI work** (bearing in Step 5).  
+**Status:** Partial — picker + aim + decode; remaining work is polish and context cards (Step 7).
 
 ### Step 7 — Per-target context card
 
@@ -277,4 +275,4 @@ Goal: ship a **single action** that saves or shares an image worth posting—cle
 
 ## Where the old “next step” landed
 
-Steps **1–4** are **done** in-repo; **5** (bearing to a fixed point) is the immediate next slice. Steps **6+** partially overlap work already started (bundled catalog + picker) but **behavioral completion** waits on **5** (and **8** for ISS-class). The roadmap still orders **motion → location → math → moving target** so each weekend leaves something runnable.
+Steps **1–5** are **done** in-repo: ground targets use **great-circle initial bearing** plus Core Motion **`.xTrueNorthZVertical`** so the arrow shaft (**local +Y**) aligns with that horizontal direction while the stabilized root tracks attitude. Step **6** is **partial** (catalog + picker + aim wiring); **8** (moving targets / ISS-class) remains the next major slice after catalog polish.

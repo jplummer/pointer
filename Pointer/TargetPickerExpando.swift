@@ -1,45 +1,48 @@
 import SwiftUI
 
-/// Current aim selection: motion stub (Step 3) or a catalog row (arrow wiring comes with Core Location + bearing).
+/// Selected catalog row drives ground aim (`ArrowSceneView` + Core Location).
 final class AimSession: ObservableObject {
   enum AimMode: Equatable {
-    case stubMotionReference
     case ground(GroundTarget)
 
     var title: String {
       switch self {
-      case .stubMotionReference:
-        return "Stub · motion reference +X"
-      case .ground(let t):
-        return t.displayName
+      case .ground(let t): return t.displayName
       }
     }
 
     var caption: String {
       switch self {
-      case .stubMotionReference:
-        return "+X axis in Core Motion's reference frame (not geographic north)."
-      case .ground(let t):
-        return t.notes
+      case .ground(let t): return t.notes
       }
     }
   }
 
+  /// Convenience for UI that always uses a catalog row (no alternate aim modes yet).
+  var selectedGroundTarget: GroundTarget {
+    switch aimMode {
+    case .ground(let t): return t
+    }
+  }
+
   @Published var pickerExpanded = false
-  @Published var aimMode: AimMode = .stubMotionReference
+  @Published var aimMode: AimMode
 
   let catalog: [GroundTarget]
 
   private static let groupOrder = [
     "seven_ancient_wonders",
     "new7_wonders_winner",
-    "new7_honorary",
     "new7_finalist",
-    "seed_plan"
+    "seed_plan",
   ]
 
   init() {
     catalog = GroundTargetsBundle.loadTargets()
+    guard let first = catalog.first else {
+      preconditionFailure("GroundTargets.json must contain at least one catalog entry.")
+    }
+    aimMode = .ground(first)
   }
 
   var groupedCatalog: [(key: String, title: String, targets: [GroundTarget])] {
@@ -55,7 +58,6 @@ final class AimSession: ObservableObject {
     switch key {
     case "seven_ancient_wonders": return "Seven ancient wonders"
     case "new7_wonders_winner": return "New 7 Wonders · winners"
-    case "new7_honorary": return "New 7 Wonders · honorary"
     case "new7_finalist": return "New 7 Wonders · finalists"
     case "seed_plan": return "More places"
     default: return key.replacingOccurrences(of: "_", with: " ").capitalized
@@ -106,16 +108,21 @@ struct TargetPickerExpando: View {
           .overlay(Color.white.opacity(0.14))
           .padding(.vertical, 12)
 
-        ScrollView {
-          LazyVStack(alignment: .leading, spacing: 18) {
-            motionStubSection
-            ForEach(session.groupedCatalog, id: \.key) { section in
-              catalogSection(title: section.title, targets: section.targets)
+        ScrollViewReader { proxy in
+          ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+              ForEach(session.groupedCatalog, id: \.key) { section in
+                catalogSection(title: section.title, targets: section.targets)
+              }
+            }
+            .padding(.bottom, 6)
+            .onAppear {
+              // LazyVStack omitted: distant rows must exist before scrollTo(…) or reopening leaves you at the top.
+              scrollSelectionIntoView(proxy: proxy)
             }
           }
-          .padding(.bottom, 6)
+          .frame(maxHeight: 320)
         }
-        .frame(maxHeight: 320)
       }
     }
     .padding(14)
@@ -132,19 +139,13 @@ struct TargetPickerExpando: View {
     .accessibilityLabel("Pointing at, \(session.aimMode.title)")
   }
 
-  private var motionStubSection: some View {
-    VStack(alignment: .leading, spacing: 8) {
-      sectionHeader("Motion (test)")
-      selectRow(
-        title: AimSession.AimMode.stubMotionReference.title,
-        subtitle: "Arrow still uses this stub until Core Location + bearing.",
-        selected: {
-          if case .stubMotionReference = session.aimMode { return true }
-          return false
-        }()
-      ) {
-        session.aimMode = .stubMotionReference
-        session.pickerExpanded = false
+  private func scrollSelectionIntoView(proxy: ScrollViewProxy) {
+    let id = session.selectedGroundTarget.id
+    Task { @MainActor in
+      // One layout pass so ScrollView has resolved content size after expand.
+      try? await Task.sleep(for: .milliseconds(32))
+      withAnimation(.easeInOut(duration: 0.28)) {
+        proxy.scrollTo(id, anchor: .center)
       }
     }
   }
@@ -156,14 +157,12 @@ struct TargetPickerExpando: View {
         selectRow(
           title: target.displayName,
           subtitle: nil,
-          selected: {
-            if case .ground(let t) = session.aimMode { return t.id == target.id }
-            return false
-          }()
+          selected: session.selectedGroundTarget.id == target.id
         ) {
           session.aimMode = .ground(target)
           session.pickerExpanded = false
         }
+        .id(target.id)
       }
     }
   }
